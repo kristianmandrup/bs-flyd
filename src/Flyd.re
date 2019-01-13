@@ -2,14 +2,10 @@ type any;
 module Stream = {
   type t = {
     end_: any,
-    /* pipe: any => Stream.t, */
-    /* map: any => Stream.t, */
-    /* ap: Stream.t => Stream.t, */
-    /* of_: any => Stream.t, */
-    pipe: any => any,
-    map: any => any,
-    apply: any => any,
-    of_: any => any,
+    pipe: any => t,
+    map: any => t,
+    ap: t => t,
+    of_: any => t,
   };
 };
 type toStream = array(any) => Stream.t;
