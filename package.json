@@ -14,11 +14,12 @@
     "stream",
     "state"
   ],
-  "author": "",
+  "files": [
+    "src/Flyd.re",
+    "bsconfig.json"
+  ],
+  "author": "Kristian Mandrup <kmandrup@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "bs-platform": "^4.0.18"
-  },
   "dependencies": {
     "flyd": "^0.2.8"
   }
