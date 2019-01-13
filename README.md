@@ -22,7 +22,9 @@ Add `bs-flyd` to `dependencies` in `bsconfig.json`
 
 See [Flyd API](https://github.com/paldepind/flyd/blob/master/README.md#api)
 
-Note: Use `apply` and NOT `ap` to apply functions on streams.
+### Api changes
+
+- To force the stream to end, use `Stream.end(~force: true)`
 
 ### Usage
 
