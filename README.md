@@ -18,17 +18,19 @@ Flyd can be used with modern state management solutions like [Meiosis](https://m
 
 Add `bs-flyd` to `dependencies` in `bsconfig.json`
 
-### Usage
-
-```javascript
-open Flyd;
-let number = stream(5)
-```
-
 ## Api
 
 See [Flyd API](https://github.com/paldepind/flyd/blob/master/README.md#api)
+
 Note: Use `apply` and NOT `ap` to apply functions on streams.
+
+### Usage
+
+```javascript
+let number = Flyd.stream(5);
+let fn = strm => strm;
+let combined = Flyd.combine(fn, [32]);
+```
 
 ## Build
 
