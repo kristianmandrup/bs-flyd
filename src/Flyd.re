@@ -11,19 +11,21 @@ module Stream = {
     of_: 'a => t('a),
   };
 };
-[@bs.send] external stream: (~value: 'b, unit) => Stream.t('a) = "";
+[@bs.module "flyd"] external stream: (~value: 'b, unit) => Stream.t('a) = "";
 [@bs.send]
 external combine: ('a => 'c, ~values: 'v, unit) => Stream.t('a) = "";
-[@bs.send] external isStream: 'a => bool = "";
-[@bs.send] external immediate: Stream.t('a) => Stream.t('a) = "";
+[@bs.module "flyd"] external isStream: 'a => bool = "";
+[@bs.module "flyd"] external immediate: Stream.t('a) => Stream.t('a) = "";
 [@bs.send]
 external endsOn: (Stream.t('a), Stream.t('b)) => Stream.t('c) = "";
-[@bs.send] external map: ('a => 'c, stream('a, 'b)) => stream('c, 'b) = "";
-[@bs.send] external chain: ('a => 'c, stream('a, 'b)) => 'c = "";
-[@bs.send] external apply: (stream('a, 'b), 'a => 'c) => 'c = "ap";
-[@bs.send] external on: ('a => 'c, stream('a, 'b)) => 'c = "";
-[@bs.send] external scan: ('a => 'c, 'd, stream('a, 'b)) => 'c = "";
-[@bs.send] external merge: array(stream('a, 'b)) => stream('a, 'b) = "";
-[@bs.send] external transduce: ('a => 'c, stream('a, 'b)) => 'a = "";
-[@bs.send] external curryN: (int, 'a => 'c) => 'c = "";
-[@bs.send] external fromPromise: 'a => 'a = "";
+[@bs.module "flyd"]
+external map: ('a => 'c, stream('a, 'b)) => stream('c, 'b) = "";
+[@bs.module "flyd"] external chain: ('a => 'c, stream('a, 'b)) => 'c = "";
+[@bs.module "flyd"] external apply: (stream('a, 'b), 'a => 'c) => 'c = "ap";
+[@bs.module "flyd"] external on: ('a => 'c, stream('a, 'b)) => 'c = "";
+[@bs.module "flyd"] external scan: ('a => 'c, 'd, stream('a, 'b)) => 'c = "";
+[@bs.module "flyd"]
+external merge: array(stream('a, 'b)) => stream('a, 'b) = "";
+[@bs.module "flyd"] external transduce: ('a => 'c, stream('a, 'b)) => 'a = "";
+[@bs.module "flyd"] external curryN: (int, 'a => 'c) => 'c = "";
+[@bs.module "flyd"] external fromPromise: 'a => 'a = "";
