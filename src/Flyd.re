@@ -12,7 +12,7 @@ module Stream = {
 };
 [@bs.module "flyd"] external stream: (~value: 'b, unit) => Stream.t('a) = "";
 [@bs.module "flyd"]
-external combine: ('a => 'c, ~values: 'v, unit) => Stream.t('a) = "";
+external combine: ('a => 'c, array('v)) => Stream.t('a) = "";
 [@bs.module "flyd"] external isStream: 'a => bool = "";
 [@bs.module "flyd"] external immediate: Stream.t('a) => Stream.t('a) = "";
 [@bs.module "flyd"]
