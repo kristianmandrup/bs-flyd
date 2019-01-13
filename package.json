@@ -8,7 +8,11 @@
     "watch": "bsb -make-world -w"
   },
   "keywords": [
-    "BuckleScript"
+    "BuckleScript",
+    "ReasonML",
+    "Flyd",
+    "stream",
+    "state"
   ],
   "author": "",
   "license": "MIT",
