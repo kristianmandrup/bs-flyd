@@ -12,11 +12,18 @@ describe("Flyd", (function () {
                                         });
                                     }))));
               }));
-        return Jest.test("#combine", (function (param) {
+        Jest.test("#combine", (function (param) {
+                return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
+                                      return Flyd.combine((function (x) {
+                                                    return x + 4 | 0;
+                                                  }), /* array */[1]);
+                                    }))));
+              }));
+        return Jest.test("#isStream", (function (param) {
                       return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
-                                            return Flyd.combine((function (x) {
-                                                          return x + 4 | 0;
-                                                        }), /* array */[1]);
+                                            return Flyd.isStream((function (param) {
+                                                          return Flyd.stream(param);
+                                                        }));
                                           }))));
                     }));
       }));

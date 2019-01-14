@@ -14,12 +14,13 @@ module Stream = {
 [@bs.module "flyd"]
 external combine: ('a => 'c, array('v)) => Stream.t('a) = "";
 [@bs.module "flyd"] external isStream: 'a => bool = "";
-[@bs.module "flyd"] external immediate: Stream.t('a) => Stream.t('a) = "";
+[@bs.module "flyd"] external immediate: Stream.t('a) => Stream.t('b) = "";
 [@bs.module "flyd"]
 external endsOn: (Stream.t('a), Stream.t('b)) => Stream.t('c) = "";
 [@bs.module "flyd"]
-external map: ('a => 'c, Stream.t('a)) => Stream.t('a) = "";
-[@bs.module "flyd"] external chain: ('a => 'c, Stream.t('a)) => 'c = "";
+external map: ('a => 'c, Stream.t('a)) => Stream.t('c) = "";
+[@bs.module "flyd"]
+external chain: ('a => 'c, Stream.t('a)) => Stream.t('c) = "";
 [@bs.module "flyd"] external ap: (Stream.t('a), 'a => 'c) => 'c = "ap";
 [@bs.module "flyd"] external on: ('a => 'c, Stream.t('a)) => 'c = "";
 [@bs.module "flyd"] external scan: ('a => 'c, 'd, Stream.t('a)) => 'c = "";
