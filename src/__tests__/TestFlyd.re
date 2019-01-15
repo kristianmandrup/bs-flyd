@@ -2,10 +2,18 @@ open Flyd;
 open Jest;
 open ExpectJs;
 
+let emptyStrm = stream();
+
 describe("Flyd", () => {
-  test("#stream", () =>
+  test("#stream empty - no value ", () =>
     expect(() =>
-      stream(~value=4)
+      stream()
+    ) |> not |> toThrow
+  );
+
+  test("#stream with value", () =>
+    expect(() =>
+      stream(~value=4, ())
     ) |> not |> toThrow
   );
 
@@ -15,16 +23,23 @@ describe("Flyd", () => {
     ) |> not |> toThrow
   );
 
-  test("#isStream", () =>
+  test("#isStream - true", () =>
     expect(() =>
-      isStream(stream())
+      isStream(emptyStrm)
+    ) |> toBeTruthy
+  );
+
+  test("#isStream - false", () =>
+    expect(() =>
+      isStream(5)
+    ) |> toBeFalsy
+  );
+
+  test("#immediate", () =>
+    expect(() =>
+      immediate(emptyStrm)
     ) |> not |> toThrow
   );
-  /* test("#immediate", () =>
-       expect(() =>
-         immediate(stream())
-       ) |> not |> toThrow
-     ); */
   /* test("#endsOn", () =>
        expect(() =>
          endsOn(stream(), stream())
