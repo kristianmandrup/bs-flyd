@@ -2,11 +2,14 @@
    https://gitlab.com/j3a-solutions/bs-xstream/blob/master/src/xstream_stream.re
    */
 module Stream = {
+  [@bs.deriving abstract]
   type t('a) = {
+    [@bs.as "end"]
     end_: (~force: bool) => unit,
     pipe: 'a => t('a),
     map: 'a => t('a),
     ap: t('a) => t('a),
+    [@bs.as "of"]
     of_: 'a => t('a),
   };
 };
