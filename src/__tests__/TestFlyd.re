@@ -20,7 +20,19 @@ describe("Flyd", () => {
 
   test("#combine", () =>
     expect(() =>
-      combine(x => strm, emptyStrm)
+      combine(_ => strm, [|emptyStrm|])
+    ) |> not |> toThrow
+  );
+
+  test("#combine1", () =>
+    expect(() =>
+      combine1(_ => strm, emptyStrm)
+    ) |> not |> toThrow
+  );
+
+  test("#combine2", () =>
+    expect(() =>
+      combine2(_ => strm, emptyStrm, emptyStrm)
     ) |> not |> toThrow
   );
 

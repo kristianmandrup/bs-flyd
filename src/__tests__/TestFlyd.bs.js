@@ -24,9 +24,23 @@ describe("Flyd", (function () {
               }));
         Jest.test("#combine", (function (param) {
                 return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
-                                      return (function (x) {
+                                      return (function (param) {
+                                                  return strm;
+                                                }).combine(/* array */[emptyStrm]);
+                                    }))));
+              }));
+        Jest.test("#combine1", (function (param) {
+                return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
+                                      return (function (param) {
                                                   return strm;
                                                 }).combine(emptyStrm);
+                                    }))));
+              }));
+        Jest.test("#combine2", (function (param) {
+                return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
+                                      return (function (param) {
+                                                  return strm;
+                                                }).combine(emptyStrm, emptyStrm);
                                     }))));
               }));
         Jest.test("#isStream - true", (function (param) {
