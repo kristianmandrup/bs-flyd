@@ -2,7 +2,8 @@ open Flyd;
 open Jest;
 open ExpectJs;
 
-let emptyStrm = stream();
+let emptyStrm = make();
+let strm = make(~value=2, ());
 
 describe("Flyd", () => {
   test("#stream empty - no value ", () =>
@@ -19,13 +20,13 @@ describe("Flyd", () => {
 
   test("#combine", () =>
     expect(() =>
-      combine(x => x + 4, [|1|])
+      combine(x => strm, emptyStrm)
     ) |> not |> toThrow
   );
 
   test("#isStream - true", () =>
     expect(() =>
-      isStream(emptyStrm)
+      isStream(make())
     ) |> toBeTruthy
   );
 
@@ -40,47 +41,46 @@ describe("Flyd", () => {
       immediate(emptyStrm)
     ) |> not |> toThrow
   );
-  /* test("#endsOn", () =>
-       expect(() =>
-         endsOn(stream(), stream())
-       ) |> not |> toThrow
-     ); */
-  /* test("#map", () =>
-       expect(() =>
-         map(x => x, stream())
-       ) |> not |> toThrow
-     ); */
-  /* test("#chain", () =>
-       expect(() =>
-         chain(x => x, stream())
-       ) |> not |> toThrow
-     ); */
-  /* test("#ap", () =>
-        expect(() =>
-          ap(stream(), x => x)
-        ) |> not |> toThrow
-      );
-     */
-  /* test("#on", () =>
-       expect(() =>
-         on(x => x, stream())
-       ) |> not |> toThrow
-     ); */
-  /* test("#scan", () =>
-       expect(() =>
-         scan(x => x, stream())
-       ) |> not |> toThrow
-     ); */
-  /* test("#merge", () =>
-       expect(() =>
-         merge([|stream()|])
-       ) |> not |> toThrow
-     ); */
-  /* test("#transduce", () =>
-       expect(() =>
-         transduce(x => x, stream())
-       ) |> not |> toThrow
-     ); */
+  test("#endsOn", () =>
+    expect(() =>
+      endsOn(strm, emptyStrm)
+    ) |> not |> toThrow
+  );
+  test("#map", () =>
+    expect(() =>
+      map(x => x, strm)
+    ) |> not |> toThrow
+  );
+  test("#chain", () =>
+    expect(() =>
+      chain(x => x, strm)
+    ) |> not |> toThrow
+  );
+  test("#ap", () =>
+    expect(() =>
+      ap(strm, x => x)
+    ) |> not |> toThrow
+  );
+  test("#on", () =>
+    expect(() =>
+      on(x => x, strm)
+    ) |> not |> toThrow
+  );
+  test("#scan", () =>
+    expect(() =>
+      scan(x => x, stream())
+    ) |> not |> toThrow
+  );
+  test("#merge", () =>
+    expect(() =>
+      merge(strm, emptyStrm)
+    ) |> not |> toThrow
+  );
+  test("#transduce", () =>
+    expect(() =>
+      transduce(x => x, strm)
+    ) |> not |> toThrow
+  );
   /* test("#curryN", () =>
        expect(() =>
          curryN(5, x => x)

@@ -8,17 +8,10 @@ The modular, KISS, functional reactive programming library for JavaScript.
 - Conforms to the fantasy land [monad](https://github.com/fantasyland/fantasy-land#monad) specification
 - [Atomic updates](#atomic-updates).
 
-## Writing bindings
-
-To help write bucklescript bindings for this lib (and hence make it usable from ReasonML) see the [FFI cheatsheet](https://github.com/glennsl/bucklescript-ffi-cheatsheet) and go for it!
-
-### Records
-
-Read up on [Bucklescript objects and records](https://bucklescript.github.io/docs/en/object#record-mode)
-
 ## Use
 
-Flyd can be used with modern state management solutions like [Meiosis](https://meiosis.js.org/) to great effect. No need for Virtual DOMs or other "complex machinery" at this point in time ;)
+Flyd can be used to great effect with modern patterns like [Meiosis](https://meiosis.js.org/).
+See [reasonml-meiosis-examples](https://github.com/kristianmandrup/reasonml-meiosis-examples)
 
 ### Install
 
