@@ -1,8 +1,21 @@
 /* See xstream bindings
-   https://gitlab.com/j3a-solutions/bs-xstream/blob/master/src/xstream_stream.re
+    https://gitlab.com/j3a-solutions/bs-xstream/blob/master/src/xstream_stream.re
    */
+
+type _value;
+type _mapArg;
+[@bs.deriving abstract]
+type strm = {
+  [@bs.as "end"]
+  end_: (~force: bool) => unit,
+  pipe: (strm => strm, unit) => strm,
+  map: _mapArg => strm,
+  ap: strm => strm,
+  [@bs.as "of"]
+  of_: _value => strm,
+};
 module Stream = {
-  type t;
+  type t = strm;
 };
 
 /* a -> Stream a */
