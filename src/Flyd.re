@@ -7,10 +7,10 @@ type _mapArg;
 [@bs.deriving abstract]
 type strm = {
   [@bs.as "end"]
-  end_: (~force: bool) => unit,
+  end_: (~force: bool, unit) => unit,
   pipe: (strm => strm, unit) => strm,
-  map: _mapArg => strm,
-  ap: strm => strm,
+  map: (strm => strm, unit) => strm,
+  ap: (strm => strm, unit) => strm,
   [@bs.as "of"]
   of_: _value => strm,
 };

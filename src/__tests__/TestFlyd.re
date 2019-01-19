@@ -93,15 +93,49 @@ describe("Flyd", () => {
       transduce(x => x, strm)
     ) |> not |> toThrow
   );
-  /* test("#curryN", () =>
-       expect(() =>
-         curryN(5, x => x)
-       ) |> not |> toThrow
-     ); */
-  /* test("#fromPromise", () =>
-       expect(() => {
-         let p = Js.Promise((x) => x)
-         fromPromise(p)
-       }) |> not |> toThrow
-     ); */
+  test("#curryN", () =>
+    expect(() =>
+      curryN(5, x => x)
+    ) |> not |> toThrow
+  );
+  test("#fromPromise", () =>
+    expect(() => {
+      let myPromise = Js.Promise.make((~resolve, ~reject) => resolve(. 2));
+      fromPromise(myPromise);
+    })
+    |> not
+    |> toThrow
+  );
+
+  describe("stream instance methods", () => {
+    /* test("#end", () =>
+         expect(() =>
+           strm.end_(~force=true, ())
+         ) |> not |> toThrow
+       ); */
+
+    test("#pipe", () =>
+      expect(() =>
+        strm.pipe(strm => strm, ())
+      ) |> not |> toThrow
+    );
+
+    test("#map", () =>
+      expect(() =>
+        strm.map(strm => strm, ())
+      ) |> not |> toThrow
+    );
+
+    test("#ap", () =>
+      expect(() =>
+        strm.ap(strm => strm, ())
+      ) |> not |> toThrow
+    );
+
+    test("#of", () =>
+      expect(() =>
+        strm.of_(2)
+      ) |> not |> toThrow
+    );
+  });
 });

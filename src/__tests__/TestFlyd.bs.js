@@ -108,11 +108,25 @@ describe("Flyd", (function () {
                                       return strm.merge(emptyStrm);
                                     }))));
               }));
-        return Jest.test("#transduce", (function (param) {
+        Jest.test("#transduce", (function (param) {
+                return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
+                                      return (function (x) {
+                                                  return x;
+                                                }).transduce(strm);
+                                    }))));
+              }));
+        Jest.test("#curryN", (function (param) {
+                return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
+                                      return (5).curryN((function (x) {
+                                                    return x;
+                                                  }));
+                                    }))));
+              }));
+        return Jest.test("#fromPromise", (function (param) {
                       return Jest.ExpectJs[/* toThrow */18](Jest.ExpectJs[/* not_ */23](Jest.ExpectJs[/* expect */0]((function (param) {
-                                            return (function (x) {
-                                                        return x;
-                                                      }).transduce(strm);
+                                            return new Promise((function (resolve, reject) {
+                                                            return resolve(2);
+                                                          })).fromPromise();
                                           }))));
                     }));
       }));
