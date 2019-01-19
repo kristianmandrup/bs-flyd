@@ -3,7 +3,6 @@
    */
 
 type _value;
-type _mapArg;
 [@bs.deriving abstract]
 type strm = {
   [@bs.as "end"]
