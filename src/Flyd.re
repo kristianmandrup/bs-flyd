@@ -2,6 +2,15 @@
     https://gitlab.com/j3a-solutions/bs-xstream/blob/master/src/xstream_stream.re
    */
 
+/* See ReasonML Object Type in: https://lorefnon.tech/2018/05/13/reasonml-vs-typescript-first-impressions/  */
+
+/*
+  perhaps this variant is better!
+
+ type person = Js.t({.
+   age: int
+ }); */
+
 type _value;
 [@bs.deriving abstract]
 type strm = {
